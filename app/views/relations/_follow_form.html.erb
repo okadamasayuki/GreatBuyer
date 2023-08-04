@@ -1,0 +1,5 @@
+<% if current_user.follow?(@display_user) %>
+    <%= render partial: 'relations/unfollow' %>
+<% else %>
+    <%= render partial: 'relations/follow' %>
+<% end %>

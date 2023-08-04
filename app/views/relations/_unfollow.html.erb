@@ -1,0 +1,5 @@
+<p>フォローしてます</p>
+<%= form_with(model: current_user.active_follow.find_by(followed_id: @display_user.id),
+                html: { method: :delete }, local: false) do |f| %>
+    <%= f.submit "unfollow" %>
+<% end %>

@@ -1,0 +1,18 @@
+<%= form_with(model: @new_post, local: true) do |form| %>
+  
+    <%= form.label :discount, "どのくらい安く買えた？" %>
+  <div>
+    <%= form.text_field :discount %>
+  </div>
+
+    <%= form.label :price, "普通はいくらくらい？"%>
+  <div>
+    <%= form.text_field :price %>
+  </div>
+
+    <%= form.label :memo, "一言メモ：" %>
+  <div>
+    <%= form.text_area :memo %>
+  </div>
+    <%= form.submit "投稿する！", class: "btn btn-primary" %>
+<% end %>

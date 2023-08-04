@@ -1,0 +1,17 @@
+<h1>home</h1>
+
+<p>節約額（今月）</p>
+<p>節約額（今まで）：<%= @discount_sum %></p>
+
+<p>フォロー数：<%= current_user.followers.count %></p>
+<p>フォロワー数：<%= current_user.following.count%></p>
+
+<p>今までの実績</p>
+<%= will_paginate @posts %>
+<% @posts.each do |post| %>
+    <p><%= post.discount %>円もお得！</p>
+    <p><%= post.price %>円で買えた！</p>
+    <p>一言メモ：<%= post.memo %></p>
+    <p>-----------------------</p>
+<% end %>
+<%= will_paginate @posts %>

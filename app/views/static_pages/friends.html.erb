@@ -1,0 +1,7 @@
+<h1>友達リスト</h1>
+
+<% @friends.each do |friend| %>
+    <p>ユーザid：<%= friend.id %></p>
+    <p>ユーザ名：<%= link_to friend.name, '/one_friend/'+friend.id.to_s %></p>
+    <p>-----------------------</p>
+<% end %>
