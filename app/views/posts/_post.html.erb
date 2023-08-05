@@ -1,5 +1,5 @@
 <p>今までの投稿数：<%= @posts.count %></p>
-<%= will_paginate @posts %>
+
 <% @posts.each do |post|%>
     <p>どれくらい得した？：<%= post.discount %></p>
     <p>普通の価格：<%= post.price %></p>
