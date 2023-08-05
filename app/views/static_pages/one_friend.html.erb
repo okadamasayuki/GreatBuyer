@@ -1,4 +1,6 @@
-<%= @display_user.name %>
+<div class="user-name">
+    <%= @display_user.name %>
+</div>
 <%= render partial: 'relations/follow_form' %>
 
 <% if @posts%>
