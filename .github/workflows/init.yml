@@ -1,0 +1,12 @@
+name: backend
+
+on:
+  push:
+    branches:
+      - introduce_github_actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: bundle exec rspec spec/models
