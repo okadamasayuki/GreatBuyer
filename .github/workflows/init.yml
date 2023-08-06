@@ -9,4 +9,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo hello world
+      - run: bundle exec rspec spec/models
