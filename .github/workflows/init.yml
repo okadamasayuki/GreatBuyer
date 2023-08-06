@@ -3,7 +3,7 @@ name: backend
 on:
   push:
     branches:
-      - introduce_github_actions
+      - master
 
 jobs:
   build:
