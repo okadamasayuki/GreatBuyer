@@ -18,7 +18,7 @@ gem 'jbuilder',                   '2.9.1'
 gem 'bootsnap',                   '1.10.3', require: false
 
 group :development, :test do
-  gem "pg"
+  gem 'sqlite3', '1.4.1'
   gem 'rspec-rails', '5.1.2'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -31,6 +31,7 @@ group :development do
 end
 
 group :test do
+  gem "pg"
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
