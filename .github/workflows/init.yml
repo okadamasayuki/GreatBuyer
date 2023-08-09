@@ -3,7 +3,7 @@ name: backend
 on:
   push:
     branches:
-      - master
+      - test #動作させないため
 
 jobs:
   build:
