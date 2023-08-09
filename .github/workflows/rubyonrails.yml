@@ -19,12 +19,14 @@ jobs:
         ports:
           - "5432:5432"
         env:
+          # このコンテナにdatabase,user,passwordを作成する
           POSTGRES_DB: db-name
           POSTGRES_USER: user-name
           POSTGRES_PASSWORD: password
     env:
       RAILS_ENV: test
-      DATABASE_URL: "postgres://user-name:password@localhost:5432/rails_test"
+      # データベースコンテナにアクセスする。アクセスするときは、envで設定したものを利用。
+      DATABASE_URL: "postgres://user-name:password@localhost:5432/db-name"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -32,11 +34,9 @@ jobs:
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1 # v1.146.0
         with:
-          # Gemfile.lockと紐づいてるみたい。（挙動から考えて）
+          # 以前、github actionsでインストールしたbundleをcacheしており、それを使う。
           bundler-cache: true
       # Add or replace database setup steps here
-      # - name: Install dependencies
-      #   run: bundle install
       - name: Set up database schema
         run: bin/rails db:migrate
       # Add or replace test runners here
