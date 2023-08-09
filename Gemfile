@@ -18,7 +18,7 @@ gem 'jbuilder',                   '2.9.1'
 gem 'bootsnap',                   '1.10.3', require: false
 
 group :development, :test do
-  gem 'sqlite3', '1.4.1'
+  gem "pg"
   gem 'rspec-rails', '5.1.2'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
