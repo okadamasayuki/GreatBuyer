@@ -3,6 +3,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require 'database_cleaner'
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -18,4 +19,22 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by(:rack_test)
   end
+
+  DatabaseCleaner.strategy = :truncation
+
+  # RSpecの実行前に1度、実行
+  config.before(:suite) do
+    DatabaseCleaner.clean
+  end
+
+  # rspecでいうexample、turnipでいうシナリオが終わるごとに実行
+  config.before(:each) do
+    DatabaseCleaner.clean
+  end  
+
+  # 最後に1度、実行
+  config.after(:suite) do
+    DatabaseCleaner.clean
+  end
+
 end
