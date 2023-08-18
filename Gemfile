@@ -16,6 +16,7 @@ gem 'webpacker',                  '4.0.7'
 gem 'turbolinks',                 '5.2.0'
 gem 'jbuilder',                   '2.9.1'
 gem 'bootsnap',                   '1.10.3', require: false
+gem "net-http"
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
@@ -35,6 +36,8 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

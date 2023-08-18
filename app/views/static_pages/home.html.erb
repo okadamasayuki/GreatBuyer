@@ -11,9 +11,9 @@
 
 <% @posts.each do |post| %>
     <div class="post">
-        <p><%= post.discount %>円もお得！</p>
-        <p><%= post.price %>円で買えた！</p>
-        <p>一言メモ：<%= post.memo %></p>
+        <p id="discount"><%= post.discount %>円もお得！</p>
+        <p id="price"><%= post.price %>円で買えた！</p>
+        <p id="memo">一言メモ：<%= post.memo %></p>
     </div>
 <% end %>
 <%= will_paginate @posts %>
