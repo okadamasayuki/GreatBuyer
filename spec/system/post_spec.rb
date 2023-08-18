@@ -6,7 +6,7 @@ RSpec.describe "Posts", type: :system do
         @user = Post.first.user
     end
 
-    describe '#home' do
+    describe 'static_pages#home' do
         before do
             visit root_path
         end
@@ -41,4 +41,20 @@ RSpec.describe "Posts", type: :system do
             end
         end
     end
+
+    describe '#new' do
+        before do
+            visit new_post_path
+        end
+
+        it '投稿することでデータ数が1増えること' do
+            expect {
+                fill_in 'どのくらい安く買えた？', with: '475'
+                fill_in '普通はいくらくらい？'  , with: '45'
+                fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
+                click_button '投稿する！'
+            }.to change(Post, :count).by 1
+        end
+    end
+
 end
