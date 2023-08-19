@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get  '/new_post',     to: 'posts#new'
   post '/create_post',  to: 'posts#create', as: 'posts'
-  delete '/destroy',    to: 'posts#destroy'
+  resources :posts, only: [:edit, :update, :destroy]
 
   resources :relations, only: [:create, :destroy]
 
