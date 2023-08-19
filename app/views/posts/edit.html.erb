@@ -1,0 +1,19 @@
+<%= form_with(model:@post, local: true) do |f| %>
+
+    <div>
+        <%= f.label :discount %>
+        <%= f.text_field :discount, :placeholder =>"#{@post.discount}" %>
+    </div>
+
+    <div>
+        <%= f.label :price %>
+        <%= f.text_area :price, :placeholder =>"#{@post.price}" %>
+    </div>
+
+    <div>
+        <%= f.label :memo %>
+        <%= f.text_area :memo, :placeholder =>"#{@post.memo}" %>
+    </div>
+
+    <%= f.submit "更新する" %>
+<% end %>

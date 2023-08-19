@@ -13,11 +13,16 @@ class PostsController < ApplicationController
     end
 
     def edit
-
+        @post = Post.find(params[:id])
     end
 
     def update
-
+        @post = Post.find(params[:id])
+        if @post.update(post_parameters)
+            redirect_to root_path
+        else
+            redirect_to edit_post_path(@post)
+        end
     end
         
 
