@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   post '/login',        to: 'sessions#create'
   delete '/logout',     to: 'sessions#destroy'
 
+  get '/new_user',      to: 'users#new'
+  post '/create_user',  to: 'users#create', as: 'users'
+
 end
 
 # cotroller作成

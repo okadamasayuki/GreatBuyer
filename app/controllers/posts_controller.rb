@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+    before_action :should_already_login, only: [:new, :create, :edit, :update, :destroy]
+    
     def new
         @new_post = current_user.posts.build
     end

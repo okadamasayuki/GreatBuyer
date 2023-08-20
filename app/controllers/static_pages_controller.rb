@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-    before_action :current_user, only: [:home, :friends, :one_friend]
+    before_action :should_already_login, only: [:home, :friends, :one_friend]
 
     def home 
         posts = current_user.posts
