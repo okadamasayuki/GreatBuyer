@@ -1,3 +1,5 @@
+<h2>ログイン</h2>
+
 <%= form_with(url: login_path, scope: :session, local: true) do |form| %>
   
   <div class="field">
@@ -13,5 +15,7 @@
   <div>
     <%= form.submit "ログインする！", class: "btn btn-primary" %>
   </div>
+
+  <%= link_to '新規登録', new_user_path %>
 
 <% end %>

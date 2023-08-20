@@ -1,4 +1,6 @@
 class RelationsController < ApplicationController
+    before_action :should_already_login, only: [:create, :destroy]
+
     def create
         @user = User.find(params[:followed_id])
         current_user.follow(@user)
