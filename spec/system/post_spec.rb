@@ -2,8 +2,15 @@ require "rails_helper"
 
 RSpec.describe "Posts", type: :system do
     before do
-        FactoryBot.send(:user_with_posts, posts_count: 35)
+        FactoryBot.send(:user_with_posts, posts_count: 15)
         @user = Post.first.user
+        @user.password = 'password'
+        log_in @user
+
+        # visit login_path
+        # fill_in 'メールアドレス', with: @user.email
+        # fill_in 'パスワード',    with: @user.password
+        # click_button 'ログインする！'
     end
 
     describe 'static_pages#home' do
@@ -11,7 +18,7 @@ RSpec.describe "Posts", type: :system do
             visit root_path
         end
 
-        it '30件表示されていること' do
+        it '10件表示されていること' do
             target_selectors = all(".post")
             expect(target_selectors.count).to eq 10
         end
