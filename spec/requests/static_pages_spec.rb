@@ -1,8 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'StaticPages', type: :request do
-
-    let!(:user) { FactoryBot.create(:user) }
+    before do
+        FactoryBot.send(:user_with_posts, posts_count: 15)
+        @user = Post.first.user
+        @user.password = 'password'
+        log_in @user
+    end
 
     describe '#home' do
         before do

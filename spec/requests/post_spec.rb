@@ -4,8 +4,12 @@ RSpec.describe "Posts", type: :request do
     describe '#create' do
         context 'ログインの場合' do
             before do
-                FactoryBot.send(:user_with_posts, posts_count: 5)
+                FactoryBot.send(:user_with_posts, posts_count: 15)
+                @user = Post.first.user
+                @user.password = 'password'
+                log_in @user
             end
+            
             let(:correct_post_params) { { post: { discount: '475',
                                                   price:    '45',
                                                   memo:     'ここには一言コメントを書きます' } } }
