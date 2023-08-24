@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
     def create
         create_post = current_user.posts.build(post_parameters)
+        create_post.image.attach(params[:post][:image])
         if create_post.save
             redirect_to root_url
         else
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
     private
 
         def post_parameters
-            params.require(:post).permit(:discount, :price, :memo)
+            params.require(:post).permit(:discount, :price, :memo, :image)
         end
 
 end

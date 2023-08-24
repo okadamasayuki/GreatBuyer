@@ -15,5 +15,11 @@
     <%= form.text_area :memo %>
   </div>
   
+  <div>
     <%= form.submit "投稿する！", class: "btn btn-primary" %>
+  </div>
+
+  <span class='image'>
+    <%= form.file_field :image %>
+  </span>
 <% end %>
