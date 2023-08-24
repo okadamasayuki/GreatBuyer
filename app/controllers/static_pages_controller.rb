@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
     before_action :should_already_login, only: [:home, :friends, :one_friend]
 
     def home 
-        posts = current_user.posts
+        posts = current_user.posts.order(created_at: :desc)
         @discount_sum = posts.sum(:discount)
         @posts = posts.paginate(page: params[:page], per_page: 10)
     end
@@ -17,7 +17,7 @@ class StaticPagesController < ApplicationController
 
     def one_friend
         @display_user = User.find(params[:display_user_id])
-        @posts = @display_user.posts.paginate(page: params[:page], per_page: 15)
+        @posts = @display_user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 15)
     end
 
 end
