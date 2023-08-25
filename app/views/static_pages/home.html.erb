@@ -14,10 +14,10 @@
         <p id="discount"><%= post.discount %>円もお得！</p>
         <p id="price"><%= post.price %>円で買えた！</p>
         <p id="memo">一言メモ：<%= post.memo %></p>
-        <%= image_tag post.image if post.image.attached? %>
+        <%= image_tag post.display_image if post.image.attached? %>
         <p><%= link_to '編集', edit_post_path(post)  %></p>
            <%# -> routes -> edit (controller) -> view %>
-        <p><%= link_to '削除', post_path(post), method: :delete %></p>
+        <%= button_to '削除', post, :method => :delete %>
     </div>
 <% end %>
 <%= will_paginate @posts %>
