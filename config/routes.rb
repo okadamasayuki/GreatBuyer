@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get '/new_user',      to: 'users#new'
   post '/create_user',  to: 'users#create', as: 'users'
 
+  delete '/posts/:post_id/favorites', to: 'favorites#destroy', as: 'remove_favorite'
+  post   '/posts/:post_id/favorites', to: 'favorites#create',  as: 'add_favorite'
+
 end
 
 # cotroller作成

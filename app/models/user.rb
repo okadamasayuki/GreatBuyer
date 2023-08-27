@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-    has_many :posts, dependent: :destroy
+    has_many :posts,     dependent: :destroy
+    has_many :favorites, dependent: :destroy
+
     has_secure_password
     
     # foregin_key（入口）を設定して、Relationモデルに別名をつけた.
@@ -36,5 +38,9 @@ class User < ApplicationRecord
 
     def follow?(other_user)
         following.include?(other_user)
+    end
+
+    def already_favorited?(post)
+        self.favorites.exists?(post_id: post.id)
     end
 end
