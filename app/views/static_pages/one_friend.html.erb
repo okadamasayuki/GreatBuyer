@@ -3,6 +3,6 @@
 </div>
 <%= render partial: 'relations/follow_form' %>
 
-<% if @posts%>
-    <%= render partial: 'posts/post' %>
-<% end%>
+<%= render 'posts/post', posts: @posts %>
+
+<%= will_paginate @posts %>

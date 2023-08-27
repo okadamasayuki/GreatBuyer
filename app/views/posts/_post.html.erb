@@ -1,8 +1,20 @@
-<p>今までの投稿数：<%= @posts.count %></p>
+<p>今までの投稿数：<%= posts.count %></p>
 
-<% @posts.each do |post|%>
-    <p>どれくらい得した？：<%= post.discount %></p>
-    <p>普通の価格：<%= post.price %></p>
-    <p>一言メモ：<%= post.memo %></p>
-<% end%>
-<%= will_paginate @posts %>
+<% posts.each do |post| %>
+    <div class="post">
+        <p id="discount"><%= post.discount %>円もお得！</p>
+        <p id="price"><%= post.price %>円で買えた！</p>
+        <p id="memo">一言メモ：<%= post.memo %></p>
+        <%= image_tag post.display_image if post.image.attached? %>
+        <p><%= link_to '編集', edit_post_path(post)  %></p>
+           <%# -> routes -> edit (controller) -> view %>
+        <%= button_to '削除', post, :method => :delete %>
+        
+        <% if current_user.already_favorited?(post) %>
+            <%= link_to 'いいねを外す', remove_favorite_path(post), method: :delete %>
+        <% else %>
+            <%= link_to 'いいねする', add_favorite_path(post), method: :post %>
+        <% end %>
+        <%= post.favorites.count%>
+    </div>
+<% end %>

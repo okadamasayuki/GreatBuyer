@@ -9,23 +9,7 @@
     </ul>
 </div>
 
-<% @posts.each do |post| %>
-    <div class="post">
-        <p id="discount"><%= post.discount %>円もお得！</p>
-        <p id="price"><%= post.price %>円で買えた！</p>
-        <p id="memo">一言メモ：<%= post.memo %></p>
-        <%= image_tag post.display_image if post.image.attached? %>
-        <p><%= link_to '編集', edit_post_path(post)  %></p>
-           <%# -> routes -> edit (controller) -> view %>
-        <%= button_to '削除', post, :method => :delete %>
-        
-        <% if current_user.already_favorited?(post) %>
-            <%= link_to 'いいねを外す', remove_favorite_path(post), method: :delete %>
-        <% else %>
-            <%= link_to 'いいねする', add_favorite_path(post), method: :post %>
-        <% end %>
-        <%= post.favorites.count%>
+<%# パーシャルのpostsに、@postsを代入 %>
+<%= render 'posts/post', posts: @posts %>
 
-    </div>
-<% end %>
 <%= will_paginate @posts %>
