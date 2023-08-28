@@ -9,7 +9,15 @@
     </ul>
 </div>
 
-<%# パーシャルのpostsに、@postsを代入 %>
-<%= render 'posts/post', posts: @posts %>
+<div>
+    <%= form_with url: search_path, local: false, method: :get do |f| %>
+        <%= f.text_field :word, placeholder: "検索キーワード", class: "search-box" %>
+        <%= f.submit "検索", class: "btn" %>
+    <% end %>
+<div>
 
-<%= will_paginate @posts %>
+<%# パーシャルのpostsに、@postsを代入 %>
+<div id="post-list">
+    <%= render 'posts/post', posts: @posts %>
+    <%= will_paginate @posts %>
+</div>

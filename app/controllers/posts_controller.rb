@@ -35,6 +35,11 @@ class PostsController < ApplicationController
         redirect_to request.referer
     end
 
+    def search
+        search_word = params[:word]
+        @posts = Post.where("memo LIKE ?", "%#{search_word}%")
+    end
+
     private
 
         def post_parameters

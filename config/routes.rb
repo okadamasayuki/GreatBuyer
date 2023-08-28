@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   delete '/posts/:post_id/favorites', to: 'favorites#destroy', as: 'remove_favorite'
   post   '/posts/:post_id/favorites', to: 'favorites#create',  as: 'add_favorite'
 
+  get '/search',  to: 'posts#search', as: 'search'
+
 end
 
 # cotroller作成
