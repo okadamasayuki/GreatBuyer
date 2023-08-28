@@ -156,6 +156,8 @@ GEM
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pry-nav (1.0.0)
+      pry (>= 0.9.10, < 0.15)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (5.0.3)
@@ -304,6 +306,7 @@ DEPENDENCIES
   mini_magick (= 4.9.5)
   net-http
   pg
+  pry-nav
   pry-rails
   puma (= 4.3.6)
   rails (= 6.0.4)

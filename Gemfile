@@ -18,6 +18,7 @@ gem 'jbuilder',                   '2.9.1'
 gem 'bootsnap',                   '1.10.3', require: false
 gem "net-http"
 gem 'pry-rails'
+gem 'pry-nav'
 gem 'active_storage_validations', '0.8.2'
 gem 'jquery-rails'
 gem 'image_processing',           '1.12.2'
