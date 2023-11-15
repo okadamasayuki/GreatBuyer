@@ -13,29 +13,16 @@ body {
 }
 
 .post {
-    border: 2px solid #BAD3FF;
     border-radius: 10px;
     margin: 10px auto;
-    width: 40%;
-    background-color: #EEFFFF;
+    width: 80%;
     padding-top: 10px;
     font-size: 18px;
     text-align: left;
     padding: 10px;
+    background: white;
 }
 
-
-.statistics {
-    max-width: 300px;
-    display: block;
-    padding: 0 auto 0 40px;
-    margin: 0px auto;
-    font-size: 18px;
-    font-weight: bold;
-    list-style: none;
-    text-align: left;
-    // border: 3px solid gray;
-}
 
 .user-name {
     border: 3px solid gray;

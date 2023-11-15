@@ -1,20 +1,42 @@
-<p>今までの投稿数：<%= posts.count %></p>
+<%# <p>今までの投稿数：<%= posts.count %></p>
 
 <% posts.each do |post| %>
     <div class="post">
-        <p id="discount"><%= post.discount %>円もお得！</p>
-        <p id="price"><%= post.price %>円で買えた！</p>
-        <p id="memo">一言メモ：<%= post.memo %></p>
+        <h3><%= post.price %>円　　
+            <i class="fa-solid fa-piggy-bank"></i>
+            <%= post.discount %> 円
+        </h2>
+        <p class="post-memo">
+            <%= post.memo %>
+        </p>
         <%= image_tag post.display_image if post.image.attached? %>
-        <p><%= link_to '編集', edit_post_path(post)  %></p>
-           <%# -> routes -> edit (controller) -> view %>
-        <%= button_to '削除', post, :method => :delete %>
+
+        <div class="post-information">
+            <div>
+                いいね：<%= post.favorites.count%>　
+                <% if current_user.already_favorited?(post) %>
+                    <%= link_to remove_favorite_path(post), method: :delete do %>
+                        <i class="fa-solid fa-heart"></i>
+                    <% end %>
+                <% else %>
+                    <%= link_to add_favorite_path(post), method: :post do %>
+                        <i class="fa-regular fa-heart"></i>
+                    <% end %>
+                <% end %>
+            </div>
         
-        <% if current_user.already_favorited?(post) %>
-            <%= link_to 'いいねを外す', remove_favorite_path(post), method: :delete %>
-        <% else %>
-            <%= link_to 'いいねする', add_favorite_path(post), method: :post %>
-        <% end %>
-        <%= post.favorites.count%>
+            <div class="post-edit-delete">
+                <%= link_to edit_post_path(post) do %>
+                    <i class="fa-regular fa-pen-to-square"></i>
+                <% end %>
+                    <%# -> routes -> edit (controller) -> view %>
+                <%= link_to post_path(post), method: :delete do %>
+                    <i class="fa-solid fa-trash-can"></i>
+                <% end %>
+                <%# <%= button_to '削除', post, :method => :delete %>
+            </div>
+        </div>
+        
+
     </div>
 <% end %>

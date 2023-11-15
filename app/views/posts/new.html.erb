@@ -1,28 +1,29 @@
-<%= form_with(model: @new_post, local: true) do |form| %>
-  
-  <div>
-    <%= form.label :discount, "どのくらい安く買えた？" %>
-    <%= form.text_field :discount %>
-  </div>
+<div id="mask"></div>
+<section id="modal">
+  <%= form_with(model: @new_post, local: true) do |form| %>
+    
+    <div class="new-post-form">
+      <%= form.label :price, "値段" , class: "new-post-label" %>
+      <%= form.text_field :price, class: "new-post-field" %>
+    </div>
 
-  <div>
-    <%= form.label :price, "普通はいくらくらい？"%>
-    <%= form.text_field :price %>
-  </div>
+    <div class="new-post-form">
+      <%= form.label :discount, "節約額", class: "new-post-label" %>
+      <%= form.text_field :discount, class: "new-post-field" %>
+    </div>
 
-  <div>
-    <%= form.label :memo, "一言メモ：" %>
-    <%= form.text_area :memo %>
-  </div>
-  
-  <div>
-    <%= form.submit "投稿する！", class: "btn btn-primary" %>
-  </div>
+    <div class="new-post-form new-post-memo">
+      <%= form.label :memo, class: "new-post-label" do %>
+        <i class="fa-solid fa-file-pen"></i>
+      <% end %>
+      <%= form.text_area :memo, class: "new-post-field" %>
+    </div>
+    
+    <%= form.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "new-post-picture" %>
 
-  <span class='image'>
-    <%= form.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
-  </span>
-<% end %>
+    <%= form.submit "投稿", class: "btn btn-primary new-post-submit" %>
+  <% end %>
+</section>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 <%# 検証のconsoleを使って、console.logにてデバック可能。 %>

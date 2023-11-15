@@ -1,23 +1,31 @@
-<h1 class="title">Home</h1>
+<div class="home">
+    <div class="stats">
+        <ul class="stats-border">
+            <li>
+                <% if current_user.avatar? %>
+                    <%= image_tag current_user.avatar.url, class: "profile_img" %>
+                <% else %>
+                    <%= image_tag ("noavatar.png"), class: "profile_img" %>
+                <% end %>
+            </li>
+            <li><%= current_user.name %></li>
+            <li><i class="fa-solid fa-piggy-bank"></i> <%= @discount_sum %>円</li>
+            <li><%= current_user.followers.count %> follow / <%= current_user.following.count%> followers</li>
+        </ul>
+    </div>
 
-<div class="statistics">
-    <ul class="statistics">
-        <li>節約額　（今月）　：</li>
-        <li>節約額（今まで）　：<%= @discount_sum %></li>
-        <li>フォロー数　　　　：<%= current_user.followers.count %></li>
-        <li>フォロワー数　　　：<%= current_user.following.count%></li>
-    </ul>
-</div>
+    <div class="main">
+        <div class="search">
+            <%= form_with url: search_path, local: false, method: :get do |f| %>
+                <%= f.text_field :word, placeholder: "検索キーワード", class: "search-box" %>
+                <%= f.submit "検索", class: "search-btn" %>
+            <% end %>
+        <div>
 
-<div>
-    <%= form_with url: search_path, local: false, method: :get do |f| %>
-        <%= f.text_field :word, placeholder: "検索キーワード", class: "search-box" %>
-        <%= f.submit "検索", class: "btn" %>
-    <% end %>
-<div>
-
-<%# パーシャルのpostsに、@postsを代入 %>
-<div id="post-list">
-    <%= render 'posts/post', posts: @posts %>
-    <%= will_paginate @posts %>
+        <%# パーシャルのpostsに、@postsを代入 %>
+        <div class="post-list">
+            <%= render 'posts/post', posts: @posts %>
+            <%= will_paginate @posts %>
+        </div>
+    </div>
 </div>
