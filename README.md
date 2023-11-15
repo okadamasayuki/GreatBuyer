@@ -1,24 +1,39 @@
-# README
+## 機能
+ ### ユーザ
+  - ユーザー新規登録
+  - ログイン（cookieによる自動ログイン）
+  - プロフィール編集（プロフィール写真登録可能）
+ ### 投稿
+  - 投稿
+  - 投稿データの集計
+  - 投稿一覧
+  - 投稿削除
+  - 投稿編集
+ ### いいね
+  - いいね
+ ### フォロー（ユーザニーズを考慮し、コメントアウト中）
+  - フォロー/フォロー解除
+  - フォロワー一覧
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 使用技術
+　### フロントエンド
+  - HTML
+  - CSS
+  - JavaScript
 
-Things you may want to cover:
+  ### バックエンド
+  - Ruby
+  - Ruby on Rails(6.0.4)
+  - sqlite3
 
-* Ruby version
+  ### テスト
+  - RSpec
 
-* System dependencies
+  ### CI
+  - Github Actions
 
-* Configuration
+  ### バージョン管理
+  - GitHub
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  ### 開発環境
+  - VScode
