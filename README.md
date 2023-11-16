@@ -1,24 +1,45 @@
-# README
+## 機能一覧
+ ### ユーザ機能
+  - ユーザー新規登録
+  - ログイン（cookieによる自動ログイン）
+  - プロフィール編集（プロフィール写真登録可能）
+  - ログアウト
+ ### 投稿機能
+  - 投稿（写真添付可能）
+  - 投稿データの集計
+  - 投稿一覧表示
+  - 投稿削除
+  - 投稿編集
+ ### いいね機能
+  - いいね
+ ### 検索機能
+  - 投稿のキーワード検索
+ ### フォロー機能（ユーザニーズを考慮し、コメントアウト中）
+  - フォロー/フォロー解除
+  - フォロワー一覧
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 利用イメージ
+![利用イメージ](https://github.com/okadamasayuki/GreatBuyer/assets/42255354/0dadba7e-dffa-47b9-a504-4c5acfea63d6)
 
-Things you may want to cover:
+## 使用技術一覧
+  ### フロントエンド
+  - HTML
+  - CSS
+  - JavaScript
 
-* Ruby version
+  ### バックエンド
+  - Ruby
+  - Ruby on Rails(6.0.4)
+  - sqlite3
 
-* System dependencies
+  ### テスト
+  - RSpec
 
-* Configuration
+  ### CI
+  - Github Actions
 
-* Database creation
+  ### バージョン管理
+  - GitHub
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  ### 開発環境
+  - VScode
