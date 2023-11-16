@@ -18,8 +18,8 @@
   - フォロー/フォロー解除
   - フォロワー一覧
 
-## 利用イメージ
-![利用イメージ](https://github.com/okadamasayuki/GreatBuyer/assets/42255354/0dadba7e-dffa-47b9-a504-4c5acfea63d6)
+## 使用イメージ
+![アプリ使用イメージ](https://github.com/okadamasayuki/GreatBuyer/assets/42255354/bbdb0233-6a89-44ae-99f3-2e6f7168f5f4)
 
 ## 使用技術一覧
   ### フロントエンド
