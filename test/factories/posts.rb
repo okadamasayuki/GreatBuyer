@@ -1,7 +1,7 @@
 FactoryBot.define do
     factory :orange, class: Post do
         discount { 200 }
-        price { 1000 }
+        price { 100 }
         memo { 'I just bought an orange!' }
     end
 end
