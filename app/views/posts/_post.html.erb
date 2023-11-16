@@ -2,10 +2,12 @@
 
 <% posts.each do |post| %>
     <div class="post">
-        <h3><%= post.price %>円　　
+        <h3>
             <i class="fa-solid fa-piggy-bank"></i>
-            <%= post.discount %> 円
-        </h2>
+            <%= number_to_currency(post.discount, unit: "", strip_insignificant_zeros: true) %> 円
+            　＝　<%= number_to_currency(post.price + post.discount, unit: "", strip_insignificant_zeros: true) %>円
+            　ー　<%= number_to_currency(post.price, unit: "", strip_insignificant_zeros: true) %>円　　
+        </h3>
         <p class="post-memo">
             <%= post.memo %>
         </p>
@@ -26,6 +28,7 @@
             </div>
         
             <div class="post-edit-delete">
+                <%= post.created_at.strftime('%Y/%m/%d') %>
                 <%= link_to edit_post_path(post) do %>
                     <i class="fa-regular fa-pen-to-square"></i>
                 <% end %>

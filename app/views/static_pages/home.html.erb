@@ -7,8 +7,7 @@
                 <% end %>
             </li>
             <li><%= current_user.name %></li>
-            <li><i class="fa-solid fa-piggy-bank"></i> <%= @discount_sum %>円</li>
-            <img src="/public/uploads/tmp/noavatar.png">
+            <li><i class="fa-solid fa-piggy-bank"></i> <%= number_to_currency(@discount_sum, unit: "", strip_insignificant_zeros: true) %>円</li>
             <!--
             <li><%= current_user.followers.count %> follow / <%= current_user.following.count%> followers</li>
             -->
