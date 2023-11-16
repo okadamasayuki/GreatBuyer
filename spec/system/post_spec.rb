@@ -56,10 +56,10 @@ RSpec.describe "Posts", type: :system do
 
         it '投稿することでデータ数が1増えること' do
             expect {
-                fill_in 'どのくらい安く買えた？', with: '475'
-                fill_in '普通はいくらくらい？'  , with: '45'
-                fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
-                click_button '投稿する！'
+                fill_in '値段', with: '475'
+                fill_in '節約額'  , with: '45'
+                # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
+                click_button '投稿'
             }.to change(Post, :count).by 1
         end
     end

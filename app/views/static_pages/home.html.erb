@@ -4,12 +4,11 @@
             <li>
                 <% if current_user.avatar? %>
                     <%= image_tag current_user.avatar.url, class: "profile_img" %>
-                <% else %>
-                    <%= image_tag ("noavatar.png"), class: "profile_img" %>
                 <% end %>
             </li>
             <li><%= current_user.name %></li>
             <li><i class="fa-solid fa-piggy-bank"></i> <%= @discount_sum %>円</li>
+            <img src="/public/uploads/tmp/noavatar.png">
             <!--
             <li><%= current_user.followers.count %> follow / <%= current_user.following.count%> followers</li>
             -->
