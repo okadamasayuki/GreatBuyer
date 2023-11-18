@@ -6,26 +6,87 @@ RSpec.describe "StaticPages", type: :system do
     end
 
     describe 'header' do
-        # before do
-        #     visit root_path
+        before do
+            visit root_path
+        end
+
+        it 'exists home link' do
+            expect(page).to have_link href: root_path
+        end
+
+        it 'exists new-post link' do
+            expect(page).to have_link href: new_post_path
+        end
+
+        # it 'exists profile link' do
+        #     expect(page).to have_link href:
+        # end 
+
+        # it 'exists logout link' do
+        #     expect(page).to have_link href: 
+        # end
+    end
+
+    describe 'common on homePage' do
+        # it 'exists flash message' do
         # end
 
-        # it '「ホーム」リンクが表示され、想定URLに移動すること' do
-        #     expect(page).to have_link 'ホーム', href: root_path
+        describe 'search' do
+            # it 'exists search window' do
+            # end
+
+            # it 'exists search botton' do
+                # expect(page).to have_link href: _path
+            # end
+        end
+
+        describe 'profile' do
+            # home画面に表示されるプロフィールについて
+            # it 'exists profile picture' do
+            # end
+
+            # it 'exists user name' do
+            # end
+
+            # it 'exists saved total money' do
+            # end
+        end
+    end
+
+        # home画面に表示される投稿について
+        # it 'exists save money' do 
         # end
 
-        # it '「友達」リンクが表示され、想定URLに移動すること' do
-        #     expect(page).to have_link '友達', href: friends_path
+        # it 'exists standard price' do 
         # end
 
-        # it '「友達を探す」リンクが表示され、想定URLに移動すること' do
-        #     expect(page).to have_link '友達を探す', href: find_friend_path
+        # it 'exists bought price' do 
         # end
 
-        # it '「投稿」リンクが表示され、想定URLに移動すること' do
-        #     expect(page).to have_link '投稿', href: new_post_path
+        # it 'exists character -' do 
+        # end
+
+        # it 'exists character =' do 
+        # end
+
+        # it 'exists memo' do 
         # end
         
-    end
+        # it 'exists favorite character' do 
+        # end
+
+        # it 'exists favorite icon' do 
+        # end
+
+        # it 'exists posted date' do 
+        # end
+
+        # it 'exists update button' do 
+            # expect(page).to have_link href: _path
+        # end
+
+        # it 'exists delete button' do 
+            # expect(page).to have_link href: _path
+        # end
 
 end

@@ -54,7 +54,9 @@ RSpec.describe "Posts", type: :system do
             visit new_post_path
         end
 
-        it '投稿することでデータ数が1増えること' do
+        # fill correct input
+
+        it 'increase 1 on database' do
             expect {
                 fill_in '値段', with: '475'
                 fill_in '節約額'  , with: '45'
@@ -62,6 +64,72 @@ RSpec.describe "Posts", type: :system do
                 click_button '投稿'
             }.to change(Post, :count).by 1
         end
+
+        # fill incorrect input
+
+        it 'input price as blank' do
+            expect {
+                fill_in '値段', with: ''
+                fill_in '節約額'  , with: '45'
+                # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
+                click_button '投稿'
+            }.not_to change(Post, :count)
+        end
+
+        it 'input price as character' do
+            expect {
+                fill_in '値段', with: 'price'
+                fill_in '節約額'  , with: '45'
+                # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
+                click_button '投稿'
+            }.not_to change(Post, :count)
+        end
+
+        it 'input save money as blank' do
+            expect {
+                fill_in '値段', with: '475'
+                fill_in '節約額'  , with: ''
+                # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
+                click_button '投稿'
+            }.not_to change(Post, :count)
+        end
+
+        it 'input save money as character' do
+            expect {
+                fill_in '値段', with: '475'
+                fill_in '節約額'  , with: 'save'
+                # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
+                click_button '投稿'
+            }.not_to change(Post, :count)
+        end
+
+        # it 'attach too large picture' do
+        #     expect {
+        #         fill_in '値段', with: '475'
+        #         fill_in '節約額'  , with: 'save'
+        #         # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
+        #         click_button '投稿'
+        #     }.not_to change(Post, :count)
+        # end
+
+        # it 'attach wrong format picture' do
+        #     expect {
+        #         fill_in '値段', with: '475'
+        #         fill_in '節約額'  , with: 'save'
+        #         # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
+        #         click_button '投稿'
+        #     }.not_to change(Post, :count)
+        # end
+
     end
+
+    # describe '#destroy' do
+    # end
+
+    # describe '#update' do
+    # end
+
+    # describe 'favorite' do
+    # end
 
 end
