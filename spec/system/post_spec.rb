@@ -124,12 +124,35 @@ RSpec.describe "Posts", type: :system do
     end
 
     # describe '#destroy' do
+        it 'decrease 1 by pushing delete button' do
+        end
     # end
 
     # describe '#update' do
+        it 'changes discount' do
+        end
+
+        it 'changes bought price' do
+        end
+
+        it 'changes memo' do
+        end
+
+        it 'changes shop' do
+        end
+
+        it 'changes picture' do
+        end
+
     # end
 
+
     # describe 'favorite' do
+        it 'increase favorite count 1 by adding favorite' do
+        end
+
+        it 'decrease favorite count 1 by removing favorite' do
+        end
     # end
 
 end
