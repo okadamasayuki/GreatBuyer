@@ -3,13 +3,19 @@
         <h3>
             <i class="fa-solid fa-piggy-bank"></i>
             <%= number_to_currency(post.discount, unit: "", strip_insignificant_zeros: true) %> 円
-            　＝　<%= number_to_currency(post.price + post.discount, unit: "", strip_insignificant_zeros: true) %>円
-            　ー　<%= number_to_currency(post.price, unit: "", strip_insignificant_zeros: true) %>円　　
+            ＝
+            <%= number_to_currency(post.price + post.discount, unit: "", strip_insignificant_zeros: true) %>円
+            ー
+            <%= number_to_currency(post.price, unit: "", strip_insignificant_zeros: true) %>円　　
         </h3>
         <p class="post-memo">
             <%= post.memo %>
         </p>
         <%= image_tag post.display_image, class: "post-image" if post.image.attached? %>
+        <% if post.shop %>
+            <p><i class="fa-solid fa-store"></i>
+            <%= post.shop %></p>
+        <% end%>
 
         <div class="post-information">
             <div>

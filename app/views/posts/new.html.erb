@@ -2,13 +2,18 @@
   <%= form_with(model: @new_post, local: true) do |form| %>
     
     <div class="post-form">
-      <%= form.label :price, "値段" , class: "post-label" %>
+      <%= form.label :price, "購入価格" , class: "post-label" %>
       <%= form.text_field :price, :placeholder =>"2,000（必須）", class: "post-field" %>
     </div>
 
     <div class="post-form">
       <%= form.label :discount, "節約額", class: "post-label" %>
       <%= form.text_field :discount, :placeholder =>"400（必須）", class: "post-field" %>
+    </div>
+
+    <div class="post-form">
+      <%= form.label :shop, "購入店", class: "post-label" %>
+      <%= form.text_field :shop, :placeholder =>"（任意）", class: "post-field" %>
     </div>
 
     <div class="post-form post-form-memo">
