@@ -89,6 +89,7 @@ GEM
       image_processing (~> 1.1)
       marcel (~> 1.0.0)
       ssrf_filter (~> 1.0)
+    chartkick (4.2.1)
     childprocess (4.1.0)
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
@@ -307,6 +308,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   carrierwave
+  chartkick
   database_cleaner
   factory_bot_rails
   faker (= 2.20.0)

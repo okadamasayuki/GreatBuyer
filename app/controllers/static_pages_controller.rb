@@ -5,6 +5,15 @@ class StaticPagesController < ApplicationController
         posts = current_user.posts.order(created_at: :desc)
         @discount_sum = posts.sum(:discount)
         @posts = posts.paginate(page: params[:page], per_page: 10)
+        this_month_post = posts.where(created_at: Date.today.beginning_of_month..Date.today.end_of_month)
+        prev_month_post = posts.where(created_at: 1.months.ago.all_month)
+        prev_2_month_post = posts.where(created_at: 2.months.ago.all_month)
+        @data = [
+                    [Date.today.month.to_s+"月", this_month_post.sum(:discount)],
+                    [Date.today.months_ago(1).month.to_s+"月", prev_month_post.sum(:discount)],
+                    [Date.today.months_ago(2).month.to_s+"月", prev_2_month_post.sum(:discount)],
+                ]
+
     end
 
     def find_friend
