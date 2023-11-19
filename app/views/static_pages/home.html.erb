@@ -1,13 +1,13 @@
 <div class="home">
     <div class="stats">
         <ul class="stats-border">
-            <li>
+            <li class="stats-item-picture">
                 <% if current_user.avatar? %>
                     <%= image_tag current_user.avatar.url, class: "profile_img" %>
                 <% end %>
             </li>
-            <li><%= current_user.name %></li>
-            <li><i class="fa-solid fa-piggy-bank"></i> <%= number_to_currency(@discount_sum, unit: "", strip_insignificant_zeros: true) %>円</li>
+            <li class="stats-item"><%= current_user.name %></li>
+            <li class="stats-item"><i class="fa-solid fa-piggy-bank"></i> <%= number_to_currency(@discount_sum, unit: "", strip_insignificant_zeros: true) %>円</li>
             <!--
             <li><%= current_user.followers.count %> follow / <%= current_user.following.count%> followers</li>
             -->

@@ -61,9 +61,17 @@ body {
 .stats-border {
     border-radius: 8px;
     background: white;
-    padding: 8px;
+    padding: 32px 8px;
     width: 80%;
     margin: 0 auto;
+}
+
+.stats-item-picture {
+    margin-bottom: 16px;
+}
+
+.stats-item {
+    margin-top: 8px;
 }
 
 .main {
@@ -199,6 +207,16 @@ body {
     box-sizing: border-box;
     border-radius: 8px;
     border-width: 1px;
+}
+
+.user-field-picture {
+    flex: 4;
+    height: 100%;
+    text-align: left;
+}
+
+.user-field-picture-image {
+    margin-bottom: 8px;
 }
 
 .user-field-button {

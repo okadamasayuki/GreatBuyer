@@ -2,23 +2,25 @@
 
 <%= form_with(model: current_user, local: true) do |f| %>
 
-    <div>
-        <%= f.label :name, "名前" %>
-        <%= f.text_field :name, :placeholder =>"#{current_user.name}" %>
+    <div class="user-field">
+        <%= f.label :name, "名前", class: "user-field-title"  %>
+        <%= f.text_field :name, :placeholder =>"#{current_user.name}", class: "user-field-field" %>
     </div>
 
-    <div>
-        <%= f.label :email, "メールアドレス" %>
-        <%= f.text_field :email, :placeholder =>"#{current_user.email}" %>
+    <div class="user-field">
+        <%= f.label :email, "メールアドレス", class: "user-field-title" %>
+        <%= f.text_field :email, :placeholder =>"#{current_user.email}", class: "user-field-field" %>
     </div>
 
-    <div>
-        <%= f.label :avatar, "プロフ写真" %>
-        <% if current_user.avatar? %>
-            <%= image_tag current_user.avatar.url, class: "profile_img" %>
-        <% end %>
-        <%= f.file_field :avatar %>
+    <div class="user-field">
+        <%= f.label :avatar, "プロフ写真", class: "user-field-title"  %>
+        <div class="user-field-picture">
+            <% if current_user.avatar? %>
+                <%= image_tag current_user.avatar.url, class: "profile_img user-field-picture-image" %>
+            <% end %>
+            <%= f.file_field :avatar %>
+        </div>
     </div>
 
-    <%= f.submit "更新" %>
+    <%= f.submit "更新", class: "btn btn-primary user-field-button" %>
 <% end %>
