@@ -1,8 +1,32 @@
-<div class="user-name">
-    <%= @display_user.name %>
+<div class="home">
+    <div class="stats">
+        <ul class="stats-border">
+            <li class="stats-item-picture">
+                <% if @display_user.avatar? %>
+                    <%= image_tag @display_user.avatar.url, class: "profile_img" %>
+                <% end %>
+            </li>
+            <li class="stats-item"><%= @display_user.name %></li>
+            <li class="stats-item"><i class="fa-solid fa-piggy-bank"></i> <%= number_to_currency(@discount_sum, unit: "", strip_insignificant_zeros: true) %>円</li>
+            <li><%= @display_user.followers.count %> follow / <%= @display_user.following.count%> followers</li>
+            <li><%= render partial: 'relations/follow_form' %></li>
+            <li><%= bar_chart @data, options = { width:'100%', height: '200px'} %></li>
+            <li><%= pie_chart @pie_chart_data, options = { width:'100%', legend: 'false'} %></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="search">
+            <%= form_with url: search_path, local: false, method: :get do |f| %>
+                <%= f.text_field :word, placeholder: "検索キーワード", class: "search-box" %>
+                <%= f.submit "検索", class: "search-btn" %>
+            <% end %>
+        <div>
+
+        <%# パーシャルのpostsに、@posts_in_this_pageを代入 %>
+        <div class="post-list">
+            <%= render 'posts/post', posts: @posts_in_this_page %>
+            <%= will_paginate @posts_in_this_page, class: "page" %>
+        </div>
+    </div>
 </div>
-<%= render partial: 'relations/follow_form' %>
-
-<%= render 'posts/post', posts: @posts %>
-
-<%= will_paginate @posts %>

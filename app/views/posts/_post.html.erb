@@ -33,14 +33,16 @@
         
             <div class="post-edit-delete">
                 <%= post.created_at.strftime('%Y/%m/%d') %>
-                <%= link_to edit_post_path(post) do %>
-                    <i class="fa-regular fa-pen-to-square"></i>
-                <% end %>
+                <% if post.user_id == current_user.id %>
+                    <%= link_to edit_post_path(post) do %>
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    <% end %>
                     <%# -> routes -> edit (controller) -> view %>
-                <%= link_to post_path(post), method: :delete do %>
-                    <i class="fa-solid fa-trash-can"></i>
+                    <%= link_to post_path(post), method: :delete do %>
+                        <i class="fa-solid fa-trash-can"></i>
+                    <% end %>
+                    <%# <%= button_to '削除', post, :method => :delete %>
                 <% end %>
-                <%# <%= button_to '削除', post, :method => :delete %>
             </div>
         </div>
         
