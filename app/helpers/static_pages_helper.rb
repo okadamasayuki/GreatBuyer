@@ -3,7 +3,8 @@ module StaticPagesHelper
         # current_userに値が入っていれば、if文を通過して、
         # そのままアクセスできる
         if current_user.nil? 
-            redirect_to login_path, alert: "You have to log in"
+            flash[:danger] = 'ログインしてください'
+            redirect_to login_path
         end
     end
 

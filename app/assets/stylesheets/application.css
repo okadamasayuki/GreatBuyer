@@ -47,6 +47,24 @@ body {
     background: rgb(218, 229, 240);
 }
 
+.alert {
+    background: rgb(181, 178, 178);
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 16px;
+}
+
+.alert-success {
+    background: #51b7f861;
+}
+
+.alert-danger {
+    background: #e95b3761;
+}
+
 .home {
     display: flex;
     gap: 16px;

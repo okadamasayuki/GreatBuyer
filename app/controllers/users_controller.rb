@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :should_not_login,     only: [:new, :create]
+    before_action :should_already_login, only: [:edit, :update]
 
     def new
         @new_user = User.new
@@ -9,7 +10,8 @@ class UsersController < ApplicationController
         user = User.new(user_params)
         if user.save
             session[:user_id] = user.id
-            redirect_to root_path, notice: 'You have logged in successfully!'
+            flash[:success] = 'ログインしました'
+            redirect_to root_path
         else
             render :new
         end
