@@ -9,8 +9,10 @@ class PostsController < ApplicationController
         create_post = current_user.posts.build(post_parameters)
         create_post.image.attach(params[:post][:image])
         if create_post.save
+            flash[:success] = '投稿しました'
             redirect_to root_url
         else
+            flash[:danger] = '投稿できませんでした'
             redirect_to '/new_post'
         end
     end

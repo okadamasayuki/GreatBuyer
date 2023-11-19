@@ -3,19 +3,19 @@
     
     <div class="post-form">
       <%= form.label :price, "値段" , class: "post-label" %>
-      <%= form.text_field :price, class: "post-field" %>
+      <%= form.text_field :price, :placeholder =>"2,000（必須）", class: "post-field" %>
     </div>
 
     <div class="post-form">
       <%= form.label :discount, "節約額", class: "post-label" %>
-      <%= form.text_field :discount, class: "post-field" %>
+      <%= form.text_field :discount, :placeholder =>"400（必須）", class: "post-field" %>
     </div>
 
     <div class="post-form post-form-memo">
       <%= form.label :memo, class: "post-label" do %>
         <i class="fa-solid fa-file-pen"></i>
       <% end %>
-      <%= form.text_area :memo, class: "post-field post-field-memo" %>
+      <%= form.text_area :memo, :placeholder =>"メモを書きます（任意）", class: "post-field post-field-memo" %>
     </div>
     
     <%= form.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "post-picture" %>
