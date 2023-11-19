@@ -265,6 +265,24 @@ body {
     padding: 12px 0;
 }
 
+/* find friend */
+
+.display-friends {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 95%;
+    margin: 24px auto;
+}
+
+.one-user {
+    display: block;
+    width: calc((100% - 64px) / 5);
+    border-radius: 16px;
+    background: white;
+    padding: 24px 0;
+}
+
 
 /* titles */
 

@@ -1,10 +1,14 @@
 <h1>ユーザ一覧</h1>
 
-<%= will_paginate @users %>
-<% @users.each do |user| %>
-    <p>ユーザ名：<%= link_to user.name, '/one_friend/'+user.id.to_s %></p>
-    <p>メール：<%= link_to user.email, '/one_friend/'+user.id.to_s %></p>
-    <p>-----------------------</p>
-<% end %>
+<div class="display-friends">
+    <% @users.each do |user| %>
+        <% if user.id != current_user.id %>
+            <%= link_to '/one_friend/'+user.id.to_s, class: "one-user" do %>
+                <p><%= user.name %></p>
+                <p><%= user.posts.sum(:discount) %></p>
+            <% end %>
+        <% end %>
+    <% end %>
+</div>
 
 <%= will_paginate @users %>
