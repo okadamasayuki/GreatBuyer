@@ -177,13 +177,20 @@ body {
 /* post list on homePage */
 
 .post-list {
-    margin-top: 24px;
+    margin: 24px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    width: 95%;
 }
 
 
 .post {
     padding: 16px;
-    margin-top: 8px;
+    padding-bottom: 48px;
+    margin: 0;
+    width: calc((100% - 24px) / 2);
+    position: relative;
 }
 
 .post-memo {
@@ -191,15 +198,29 @@ body {
     margin: 8px auto 0;
 }
 
+.post-image {
+    height: 192px;
+    margin-left: 24px;
+    margin-bottom: 4px;
+    border-radius: 12px;
+}
+
 .post-information {
+    position: absolute;
+    bottom: 16px;
+    /* widthの100%は,relativeのwidth */
+    width: calc(100% - 32px);
     display: flex;
     justify-content: space-between;
-    margin-top: 16px;
 }
 
 .post-edit-delete {
     display: flex;
     gap: 8px;
+}
+
+.page {
+    margin: 0 auto 32px;
 }
 
 /* user form */
