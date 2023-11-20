@@ -15,4 +15,15 @@ class RelationsController < ApplicationController
         current_user.unfollow(@user)
         redirect_to '/one_friend/' + @user.id.to_s
     end
+
+    def followers 
+        display_user = current_user
+        @followers = display_user.followers
+    end
+
+    def followings
+        display_user = current_user
+        @followings = display_user.following
+    end
+
 end

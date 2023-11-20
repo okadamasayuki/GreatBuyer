@@ -1,0 +1,8 @@
+<div class="display-friends">
+    <% @followings.each do |user| %>
+        <%= link_to '/one_friend/'+user.id.to_s, class: "one-user" do %>
+            <p><%= user.name %></p>
+            <p><%= user.posts.sum(:discount) %></p>
+        <% end %>
+    <% end %>
+</div>
