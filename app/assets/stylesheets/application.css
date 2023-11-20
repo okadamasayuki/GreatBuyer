@@ -96,6 +96,20 @@ body {
     flex: 4;
 }
 
+.follow-button {
+    width: 80%;
+    margin: 8px auto;
+    background: rgb(51,122,183);
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+}
+
+.unfollow-button {
+    background: rgb(239,239,239);
+    color: gray;
+}
+
 /* search on homePage */
 
 .search {
