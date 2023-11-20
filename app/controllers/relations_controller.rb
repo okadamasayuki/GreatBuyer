@@ -8,21 +8,18 @@ class RelationsController < ApplicationController
     end
 
     def destroy
-        logger.debug("##################")
-        logger.debug(params[:id])
-        logger.debug("##################")
         @user = Relation.find(params[:id]).followed
         current_user.unfollow(@user)
         redirect_to '/one_friend/' + @user.id.to_s
     end
 
     def followers 
-        display_user = current_user
+        display_user = User.find(params[:id])
         @followers = display_user.followers
     end
 
     def followings
-        display_user = current_user
+        display_user = User.find(params[:id])
         @followings = display_user.following
     end
 

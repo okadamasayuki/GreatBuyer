@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :posts, only: [:edit, :update, :destroy]
 
   resources :relations, only: [:create, :destroy]
-  get '/followers',     to: 'relations#followers'
-  get '/followings',    to: 'relations#followings'
+  get '/followers/:id',     to: 'relations#followers'
+  get '/followings/:id',    to: 'relations#followings'
 
   get '/login',         to: 'sessions#new'
   post '/login',        to: 'sessions#create'
