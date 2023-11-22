@@ -2,34 +2,19 @@ require "rails_helper"
 
 RSpec.describe "Users", type: :system do
 
-    describe 'new user' do
-        before do
-            visit new_user_path
-        end
+    describe '#create' do
+        context '無効な値の場合' do
+            it 'エラーメッセージのflashが表示されていること' do
+                visit new_user_path
+                fill_in 'ユーザ名', with: ''
+                fill_in 'メールアドレス', with: 'user@invalid'
+                fill_in 'パスワード', with: 'pass'
+                fill_in 'パスワード（確認）', with: 'word'
+                click_button '新規登録'
 
-        it 'exists mail-address' do
-            expect(page).to have_content 'メールアドレス'
+                expect(page).to  have_content 'ユーザ作成できませんでした'
+            end
         end
-
-        it 'exists password' do
-            expect(page).to have_content 'パスワード'
-        end
-
-        it 'exists password confirm' do
-            expect(page).to have_content 'パスワード（確認）'
-        end
-
-        it 'exists new user button' do
-            expect(page).to have_button '新規登録'
-        end
-
-        it 'exists login link' do
-            expect(page).to have_link 'ログイン'
-        end
-
-        it 'password and password confirm are not same' do
-        end
-
     end
 
     describe 'login' do

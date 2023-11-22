@@ -6,17 +6,13 @@ RSpec.describe "StaticPages", type: :system do
     end
 
     describe 'header' do
-        before do
-            visit root_path
-        end
+        visit root_path
 
-        it 'exists home link' do
-            expect(page).to have_link href: root_path
-        end
-
-        it 'exists new-post link' do
-            expect(page).to have_link href: new_post_path
-        end
+        expect(page).to have_link href: root_path
+        expect(page).to have_link href: new_post_path
+        expect(page).to have_link href: find_friend_path
+        expect(page).to have_link href: edit_user_path
+        expect(page).to have_link href: logout_path
 
         # it 'exists profile link' do
         #     expect(page).to have_link href:
@@ -38,6 +34,7 @@ RSpec.describe "StaticPages", type: :system do
             # it 'exists search botton' do
                 # expect(page).to have_link href: _path
             # end
+            
         end
 
         describe 'profile' do

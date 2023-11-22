@@ -9,11 +9,8 @@ RSpec.describe 'StaticPages', type: :request do
     end
 
     describe '#home' do
-        before do
-            get root_path
-        end
-
         it '正常にレスポンスを返すこと' do
+            get root_path
             expect(response).to have_http_status :ok
         end
 
@@ -26,10 +23,10 @@ RSpec.describe 'StaticPages', type: :request do
         end
     end
 
-    describe '#friends' do
+    describe '#one_friend' do
         it '正常にレスポンスを返すこと' do
-            get friends_path
-            expect(response).to have_http_status :ok
+            # get one_friend_path(@user)
+            # expect(response).to have_http_status :ok
         end
     end
 

@@ -3,6 +3,11 @@
 <%= form_with(model: @new_user, url: users_path, local: true) do |form| %>
   
     <div class="user-field">
+        <%= form.label :name, "ユーザ名", class: "user-field-title" %>
+        <%= form.text_field :name, class: "user-field-field" %>
+    </div>
+
+    <div class="user-field">
         <%= form.label :email, "メールアドレス", class: "user-field-title" %>
         <%= form.email_field :email, class: "user-field-field" %>
     </div>

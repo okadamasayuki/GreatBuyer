@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get '/new_user',      to: 'users#new'
   post '/create_user',  to: 'users#create', as: 'users'
-  get 'edit_user',      to: 'users#edit'
+  get '/edit_user',      to: 'users#edit'
   resources :users, only: [:update]
 
   delete '/posts/:post_id/favorites', to: 'favorites#destroy', as: 'remove_favorite'
