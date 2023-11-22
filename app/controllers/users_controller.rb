@@ -25,10 +25,11 @@ class UsersController < ApplicationController
     end
 
     def update 
-        # binding.pry
         if current_user.update(user_params)
+            flash[:success] = 'プロフィールを更新しました'
             redirect_to root_path
         else
+            flash.now[:danger] = 'プロフィール更新できませんでした'
             render :edit
         end
     end

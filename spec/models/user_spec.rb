@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do 
   # user = FactoryBot.create(:user)
-  let(:user) { User.new(name: 'Example User', email: 'user@example.com', 
-    password: 'password', password_confirmation: 'password') }
+  let(:user) { User.new(name: 'Example User',
+                        email: 'user@example.com', 
+                        password: 'password',
+                        password_confirmation: 'password') }
 
   it 'userが有効であること' do
     expect(user).to be_valid
@@ -45,4 +47,9 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
   end
 
+  describe '#authenticated?' do
+    it 'digestがnilならfalseを返すこと' do
+      expect(user.authenticate('')).to be_falsy
+    end
+  end
 end

@@ -39,4 +39,62 @@ RSpec.describe 'Users', type: :request do
             end
         end
     end
+
+    describe 'PATCH /users' do
+        let!(:user) { FactoryBot.create(:user) }
+
+        it 'ユーザ名が表示されていること' do
+            log_in(user)
+            get edit_user_path
+            expect(response.body).to include "プロフィール"
+        end
+
+        context '無効な値の場合' do
+            before do
+                log_in(user)
+            end
+
+            it '更新できないこと' do
+                patch user_path(user), params: { user: { name: '',
+                                                         email: ''} }
+                user.reload
+                expect(user.name).to_not eq ''
+                expect(user.email).to_not eq ''
+            end
+
+            it '更新後にeditのページが表示されていること' do
+                get edit_user_path
+                patch user_path(user), params: { user: { name: '',
+                                                         email: '' } }
+                expect(response.body).to  include "プロフィール"
+            end
+
+            it 'プロフィール更新できませんでしたと表示されていること' do
+                patch user_path(user), params: { user: { name: '', 
+                                                         email: ''}}
+                expect(response.body).to include 'プロフィール更新できませんでした'
+            end
+        end
+
+        context '有効な値の場合' do
+            before do
+                @name = 'Valid Example'
+                @email = 'valid@example.com'
+                log_in(user)
+                patch user_path(user), params: { user: { name: @name,
+                                                         email: @email } }
+            end
+
+            it '更新できること' do
+                user.reload
+                expect(user.name).to eq @name
+                expect(user.email).to eq @email
+            end
+
+            it 'Homeページにリダイレクトすること' do
+                expect(response).to redirect_to root_path
+            end
+        end
+
+    end
 end
