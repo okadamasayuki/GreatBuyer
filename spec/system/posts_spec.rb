@@ -24,7 +24,7 @@ RSpec.describe "Posts", type: :system do
         end
 
         it 'ページネーションのタグが1つ表示されること' do
-            target_selectors = all('div.pagination')
+            target_selectors = all('.pagination')
             expect(target_selectors.count).to eq 1
         end
 
@@ -58,7 +58,7 @@ RSpec.describe "Posts", type: :system do
 
         it 'increase 1 on database' do
             expect {
-                fill_in '値段', with: '475'
+                fill_in '購入価格', with: '475'
                 fill_in '節約額'  , with: '45'
                 # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
                 click_button '投稿'
@@ -69,7 +69,7 @@ RSpec.describe "Posts", type: :system do
 
         it 'input price as blank' do
             expect {
-                fill_in '値段', with: ''
+                fill_in '購入価格', with: ''
                 fill_in '節約額'  , with: '45'
                 # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
                 click_button '投稿'
@@ -78,7 +78,7 @@ RSpec.describe "Posts", type: :system do
 
         it 'input price as character' do
             expect {
-                fill_in '値段', with: 'price'
+                fill_in '購入価格', with: 'price'
                 fill_in '節約額'  , with: '45'
                 # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
                 click_button '投稿'
@@ -87,7 +87,7 @@ RSpec.describe "Posts", type: :system do
 
         it 'input save money as blank' do
             expect {
-                fill_in '値段', with: '475'
+                fill_in '購入価格', with: '475'
                 fill_in '節約額'  , with: ''
                 # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
                 click_button '投稿'
@@ -96,7 +96,7 @@ RSpec.describe "Posts", type: :system do
 
         it 'input save money as character' do
             expect {
-                fill_in '値段', with: '475'
+                fill_in '購入価格', with: '475'
                 fill_in '節約額'  , with: 'save'
                 # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
                 click_button '投稿'
@@ -105,7 +105,7 @@ RSpec.describe "Posts", type: :system do
 
         # it 'attach too large picture' do
         #     expect {
-        #         fill_in '値段', with: '475'
+        #         fill_in '購入価格', with: '475'
         #         fill_in '節約額'  , with: 'save'
         #         # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
         #         click_button '投稿'
@@ -114,7 +114,7 @@ RSpec.describe "Posts", type: :system do
 
         # it 'attach wrong format picture' do
         #     expect {
-        #         fill_in '値段', with: '475'
+        #         fill_in '購入価格', with: '475'
         #         fill_in '節約額'  , with: 'save'
         #         # fill_in '一言メモ：'          , with: 'ここには一言コメントを書きます'
         #         click_button '投稿'
